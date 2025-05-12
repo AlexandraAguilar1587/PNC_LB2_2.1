@@ -1,6 +1,5 @@
 package org.ncapas.pnc_lb2_21.Domain.Entities;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,24 +11,15 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+public class Jornada {
 
-
-public class Sucursal {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID idSucursal;
+    private UUID idJornada;
 
     @Column
-    private String nombreSucursal;
+    private String codigo;
 
     @Column
-    private String DireccionSucursal;
-
-   /*
-   @ManyToOne
-    @JoinColumn(name = "municipio_id", nullable = false)
-    private Municipio municipio;
-   */
-
-
+    private String nombre;
 }

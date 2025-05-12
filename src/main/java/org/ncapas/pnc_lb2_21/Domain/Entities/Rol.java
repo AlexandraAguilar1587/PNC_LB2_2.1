@@ -5,25 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
-
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "color_boton")
-
-
-public class Color {
+@Table(name = "rol")
+public class Rol {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "color_boton_id")
-    private UUID idColor;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "rol_id")
+    private Integer idRol;
 
-    @Column(nullable = false, length = 10)
+    @Column(name = "codigo", nullable = false, unique = true)
     private String codigo;
 
-    @Column(nullable = false, length = 50)
+    @Column(name = "nombre", nullable = false)
     private String nombre;
 }
+

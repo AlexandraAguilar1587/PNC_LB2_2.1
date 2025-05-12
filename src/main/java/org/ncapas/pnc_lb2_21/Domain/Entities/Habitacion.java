@@ -11,22 +11,26 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "piso")
-public class Piso {
+@Table(name = "habitacion")
+
+public class Habitacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "piso_id")
-    private UUID idPiso;
+    @Column(name = "habitacion_id")
+    private UUID idHabitacion;
 
     @ManyToOne
-    @JoinColumn(name = "color_boton", nullable = false)
-    private Color colorBoton;
+    @JoinColumn(name = "piso", nullable = false)
+    private Piso piso;
 
     @ManyToOne
-    @JoinColumn(name = "sucursal", nullable = false)
-    private Sucursal sucursal;
+    @JoinColumn(name = "tipo_habitacion", nullable = false)
+    private Tipo_Habitacion tipoHabitacion;
 
     @Column(nullable = false, length = 100)
     private String nombre;
+
+    @Column(nullable = false)
+    private int capacidad;
 }

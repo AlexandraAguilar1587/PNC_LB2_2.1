@@ -11,21 +11,19 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "piso")
-public class Piso {
+
+
+@Table(name = "decoracion")
+
+public class Decoracion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "piso_id")
-    private UUID idPiso;
+    @Column(name = "decoracion_id")
+    private UUID idDecoracion;
 
-    @ManyToOne
-    @JoinColumn(name = "color_boton", nullable = false)
-    private Color colorBoton;
-
-    @ManyToOne
-    @JoinColumn(name = "sucursal", nullable = false)
-    private Sucursal sucursal;
+    @Column(nullable = false, length = 20)
+    private String codigo;
 
     @Column(nullable = false, length = 100)
     private String nombre;

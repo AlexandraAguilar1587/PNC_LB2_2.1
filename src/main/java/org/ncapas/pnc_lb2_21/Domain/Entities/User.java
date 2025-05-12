@@ -1,23 +1,36 @@
 package org.ncapas.pnc_lb2_21.Domain.Entities;
+
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.util.UUID;
 
 @Entity
-public class User {
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Table(name = "user_data")
 
+public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID idUser;
+    @Column(name = "usuario_id")
+    private UUID usuarioId;
 
-    @Column
-    private String firstName;
+    @Column(name = "correo", nullable = false, unique = true)
+    private String correo;
 
-    @Column
-    private String lastName;
+    @Column(name = "contrasena", nullable = false)
+    private String contrasena;
 
-
-//Fecha de nacimiento, correo, contrase;a
-
+    @ManyToOne
+    @JoinColumn(name = "roles", nullable = false, foreignKey = @ForeignKey(name = "FK_usuario_rol"))
+    private Rol rol;
 
 }
+
+
+
