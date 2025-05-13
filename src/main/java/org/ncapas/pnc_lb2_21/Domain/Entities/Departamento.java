@@ -10,7 +10,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Departamento {
+public class    Departamento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)

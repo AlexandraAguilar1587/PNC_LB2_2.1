@@ -23,7 +23,7 @@ public class Sucursal {
     private String nombreSucursal;
 
     @Column
-    private String DireccionSucursal;
+    private String direccionSucursal;
 
    /*
    @ManyToOne
