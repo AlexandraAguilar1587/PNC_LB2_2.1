@@ -10,13 +10,13 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
-public interface iReservacionRepository extends iGenericRepository<Comprobante, UUID>{
-    // 1) Métodos JPA
+public interface iComprobanteRepository extends iGenericRepository<Comprobante, UUID>{
+    // 1)JPA
     List<Comprobante> findByFecha(LocalDate fecha);
     List<Comprobante> findByMontoCobro(BigDecimal montoCobro);
     List<Comprobante> findByReservacion(Reservacion reservacion);
 
-    // 2) Consultas nativas
+    // 2) Nativas
     @Query(value = "SELECT * FROM comprobante WHERE fecha = :fecha", nativeQuery = true)
     List<Comprobante> findByFechaNative(@Param("fecha") LocalDate fecha);
 
@@ -26,7 +26,7 @@ public interface iReservacionRepository extends iGenericRepository<Comprobante, 
     @Query(value = "SELECT * FROM comprobante WHERE reservacion = :reservacionId", nativeQuery = true)
     List<Comprobante> findByReservacionNative(@Param("reservacionId") UUID reservacionId);
 
-    // 3) Consultas JPQL
+    // 3) JPQL
     @Query("SELECT c FROM Comprobante c WHERE c.fecha = :fecha")
     List<Comprobante> findByFechaJpql(@Param("fecha") LocalDate fecha);
 

@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public interface iSucursalRepository extends iGenericRepository<Sucursal, UUID> {
 
-    // 1) Métodos JPA derivados
+    // 1) Métodos JPA
     List<Sucursal> findByNombreSucursal(String nombreSucursal);
     List<Sucursal> findByDireccionSucursal(String direccionSucursal);
 
